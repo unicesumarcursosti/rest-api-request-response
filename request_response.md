@@ -121,3 +121,73 @@ Accept-Language: pt-BR
 ## 🎓 Conclusão
 
 > Os **headers HTTP** são como **informações auxiliares que ajudam o servidor a entender melhor o que você está pedindo** e como responder corretamente. Eles não fazem parte dos dados principais, mas sem eles, muitas requisições seriam incompletas ou mal interpretadas.
+
+## 🍪 O que são Cookies em HTTP?
+
+Cookies são **pequenos pacotes de informação que o servidor envia para o navegador**, para que ele **lembre de algo sobre o usuário** em visitas futuras. Eles funcionam como **cartõezinhos de identificação** que ficam com o cliente, permitindo que o servidor o reconheça depois.
+
+---
+
+### 🏨 Metáfora: Hotel e Cartão de Hóspede
+
+Imagine que você chega a um hotel pela primeira vez:
+
+- Você faz o check-in (login no site).
+- O hotel te entrega um **cartão de hóspede** com seu número de quarto e outras preferências (o cookie).
+- Toda vez que você entra no restaurante ou quer usar o elevador, você mostra o cartão (envia o cookie).
+- O hotel então sabe quem você é, onde está hospedado e do que você gosta (servidor reconhece suas preferências).
+
+---
+
+## 📌 Para que servem os cookies?
+
+Os cookies são usados para:
+
+1. **Manter sessões ativas (login)**  
+   → Ex: lembrar que você está logado mesmo ao recarregar a página.
+
+2. **Guardar preferências**  
+   → Ex: modo escuro, idioma selecionado, itens do carrinho de compras.
+
+3. **Rastreamento e análise**  
+   → Ex: saber quais páginas você visitou, quanto tempo ficou em cada uma.
+
+4. **Personalização de conteúdo**  
+   → Ex: mostrar recomendações baseadas no seu histórico.
+
+---
+
+## 🔄 Como funcionam?
+
+1. O servidor **envia um cookie** ao cliente (navegador) na resposta HTTP:
+```
+Set-Cookie: nome=valor; Expires=…
+```
+2. O navegador **guarda esse cookie** e, em cada nova requisição, **o envia de volta** automaticamente:
+```
+Cookie: nome=valor
+```
+3. O servidor pode então **reconhecer o usuário** e agir de acordo.
+
+---
+
+### ✉️ Exemplo prático
+
+Você faz login no site:
+- O servidor envia um cookie com `sessionId=123456`.
+- Toda vez que você navega entre as páginas, o navegador envia esse cookie.
+- O servidor usa esse valor para saber que **você está autenticado** e exibir suas informações.
+
+---
+
+## ⚠️ Cuidados com Cookies
+
+- Cookies **não devem armazenar informações sensíveis diretamente** (como senhas).
+- Devem ser usados junto com **HTTPS** para evitar roubo de dados.
+- Existem bandeiras como `HttpOnly`, `Secure` e `SameSite` que ajudam a tornar os cookies mais seguros.
+
+---
+
+## 🎓 Conclusão
+
+> Cookies são como **lembranças que o navegador leva com ele** entre uma requisição e outra, permitindo ao servidor **reconhecer o usuário, manter sessões e personalizar a experiência**. São essenciais para muitas funcionalidades modernas da web.
